@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Add a Friend</h1>
+
+<form class="form" action="/create_friend" method="post">
+    <div class="mb-3">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name">
+    </div>
+    <div class="mb-3">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name">
+    </div>
+    <div class="mb-3">
+        <label for="occupation">Occupation:</label>
+        <input type="text" name="occupation">
+    </div>
+    <button type="submit" class="btn btn-success">Create Friend</button>
+</form>
+
+
+<h1>All My Friends</h1>
+{% for one_friend in all_friends %}
+    <p>First Name: {{one_friend.first_name}}</p>
+    <p>Last Name: {{one_friend.last_name}}</p>
+    <p>Occupation: {{one_friend.occupation}}</p>
+    <hr>
+{% endfor %}
+
+{% endblock %}
